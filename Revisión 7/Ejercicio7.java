@@ -1,0 +1,44 @@
+package com.ejercicios;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Ejercicio7 {
+	
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in); //Se agrega System.in
+
+	    HashMap<String, String> capitales = new HashMap<>(); //Se agregan string y completa variable a capitañes
+
+	    capitales.put("Canadá", "Otawwa");
+	    capitales.put("Estados Unidos", "Washington DC");
+	    capitales.put("México", "México DF");
+	    capitales.put("Belice", "Belmopán");
+	    capitales.put("Costa rica", "San José");
+	    capitales.put("El Salvador", "San Salvador"); //Se agrega capital de El Salvador
+	    capitales.put("Guatemala", "Ciudad de Guatemala");
+	    capitales.put("Honduras", "Tegucigalpa");
+	    capitales.put("Nicaragua", "Managua");
+	    capitales.put("Panamá", "Panamá");
+	   
+	    String c = ""; //Se corrige String
+	    do {
+	      System.out.println("Escribe el nombre de un país y te diré su capital: "); //Se agrega out y elimina in
+	      c = s.nextLine(); //Se solicita al usuario ingreso del país
+	      
+	      if (!c.equals("salir")) { //corrige equal a equals
+	        if (capitales.containsKey(c)) { //se corrige la variable capitales y se cambia Value a Key 
+	          System.out.print("La capital de " + c); //Se agrega out
+	          System.out.println(" es " + capitales.get(c)); //se elimina put y se agrega get
+	        } else {
+	          System.out.print("No conozco la respuesta ");
+	          System.out.print("¿cuál es la capital de " + c + "?: ");
+	          String ca = s.nextLine();
+	          capitales.put(c, ca); //se arregla la variable capitales para añadirle c y ca no registradas 
+	          System.out.println("Gracias por enseñarme nuevas capitales");
+	        }
+	      }
+	    } while (!c.equals("salir")); //Se corrige while y se agrega parentesis de cierre
+	}
+}
